@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} Shorten URL | 404 {% endblock %}
+{% block body %}
+<div class="flex flex-col min-h-screen justify-between">
+    <main class="w-full box-border sm:px-16 md:px-32 lg:px-0 lg:w-1/3 mx-auto">
+        <div class="flex flex-col items-center justify-center pt-5">
+            <img class="w-8" src="{{ url_for('static', filename='images/logo.svg') }}" alt="Logo">
+            <h2 class="text-cyan-500 text-xl lg:text-3xl font-bold">Shorten URL</h2>
+        </div>
+        <section class="flex flex-col items-center justify-center mx-auto p-5 pt-20 text-center space-y-2 lg:space-y-4">
+            <h1 class="lg:text-9xl text-cyan-500 font-bold">404</h1>
+            <p class="text-cyan-500 lg:text-lg">The page you are looking for could not be found!</p>
+            <a href="/">
+                <button class="bg-cyan-500 text-white px-4 py-2 rounded-md shadow-md hover:shadow-lg hover:bg-cyan-600">Back to Home</button>
+            </a>
+        </section>
+    </main>
+    <footer class="flex items-center justify-center pb-3 lg:text-lg hover:underline">
+        <a target="_blank" class="text-slate-900 font-bold" href="https://github.com/putuwaw/shorten-url">
+            <i class="fa-brands fa-github mr-1"></i> shorten-url
+        </a>
+    </footer>
+</div>
+{% endblock %}

@@ -5,9 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %} {% endblock %}</title>
-        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/favicon.png') }}" />
+        <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.svg') }}" />
         <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
-    </head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/output.css') }}">
+        <script src="https://kit.fontawesome.com/d26e212e8f.js" crossorigin="anonymous"></script>    </head>
     <body>
         {% block body %} {% endblock %}
         <script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
