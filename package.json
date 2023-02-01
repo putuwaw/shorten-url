@@ -1,5 +1,11 @@
 {
+  "name": "shorten-url",
+  "description": "URL Shortener using Flask and MySQL",
+  "license": "MIT",
   "devDependencies": {
     "tailwindcss": "^3.2.4"
+  },
+  "scripts":{
+    "test": "tailwindcss -i ./static/styles/input.css -o ./static/styles/output.css --minify"
   }
 }
