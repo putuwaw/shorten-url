@@ -1,4 +1,5 @@
-from flask import render_template, request, redirect
+from flask import render_template, request, redirect, jsonify
+from flask_cors import cross_origin
 from modules import modules
 from models.url_list import UrlList
 from utils.db import db
@@ -46,3 +47,31 @@ def configure_routes(app):
         else:
             url = UrlList.query.filter(UrlList.url_short == shortUrl).first()
             return redirect(url.url, code=302)
+
+    @app.route("/api", methods=['POST'])
+    @cross_origin("*")
+    def api():
+        print("origin", request.environ.get('HTTP_ORIGIN'))
+        req = request.get_json()
+        url = req['url']
+        customUrl = req['custom']
+
+        shortUrl = ""
+
+        if customUrl != '':
+            shortUrl = modules.check_custom_url(customUrl)
+            if shortUrl == "used":
+                return jsonify({
+                    'status': 'Error!',
+                    'message': 'Custom URL is already used.'
+                })
+        else:
+            length = modules.get_string_length()
+            shortUrl = modules.random_string(length)
+
+        modules.insert_to_database(db, url, shortUrl)
+
+        return jsonify({
+            'status': 'Success!',
+            'message': 'Result: https://shrtn-url.vercel.app/{}'.format(shortUrl),
+        })
