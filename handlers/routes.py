@@ -58,7 +58,18 @@ def configure_routes(app):
 
         shortUrl = ""
 
+        if not modules.is_valid_url(url):
+            return jsonify({
+                'status': 'Error!',
+                'message': 'Invalid URL.'
+            })
+
         if customUrl != '':
+            if not modules.is_valid_custom(customUrl):
+                return jsonify({
+                    'status': 'Error!',
+                    'message': 'Invalid custom URL.'
+                })
             shortUrl = modules.check_custom_url(customUrl)
             if shortUrl == "used":
                 return jsonify({
