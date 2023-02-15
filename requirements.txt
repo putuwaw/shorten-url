@@ -22,5 +22,5 @@ python-dotenv==0.21.1
 six==1.16.0
 SQLAlchemy==2.0.3
 tomli==2.0.1
-typing_extensions==4.4.0
+typing_extensions==4.5.0
 Werkzeug==2.2.2
