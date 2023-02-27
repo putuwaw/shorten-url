@@ -18,7 +18,7 @@ pycodestyle==2.10.0
 pycparser==2.21
 PyMySQL==1.0.2
 pytest==7.2.1
-python-dotenv==0.21.1
+python-dotenv==1.0.0
 six==1.16.0
 SQLAlchemy==2.0.4
 tomli==2.0.1
