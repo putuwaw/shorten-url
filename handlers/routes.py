@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, jsonify
+from flask import render_template, request, redirect, jsonify, make_response, escape
 from flask_cors import cross_origin
 from modules import modules
 from models.url_list import UrlList
@@ -51,11 +51,10 @@ def configure_routes(app):
     @app.route("/api", methods=['POST'])
     @cross_origin("*")
     def api():
-        print("origin", request.environ.get('HTTP_ORIGIN'))
         req = request.get_json()
         url = req['url']
         customUrl = req['custom']
-
+        
         shortUrl = ""
 
         if not modules.is_valid_url(url):
@@ -82,7 +81,7 @@ def configure_routes(app):
 
         modules.insert_to_database(db, url, shortUrl)
 
-        return jsonify({
+        return make_response({
             'status': 'Success!',
-            'message': 'Result: https://shrtn-url.vercel.app/{}'.format(shortUrl),
+            'message': 'Result: https://shrtn-url.vercel.app/' + escape(shortUrl),
         })
