@@ -18,8 +18,12 @@ Using Shorten URL, you can:
 - Python 3.10 or higher
 - MySQL 8.0.32 or higher
 - Node.js v18.13.0 or higher
+- Docker 24.0.4 or higher (optional)
+- docker-compose 1.29.2 or higher (optional)
 
 ## Installation 🛠
+
+### Manual Installation
 
 - Clone the repository:
 
@@ -51,6 +55,20 @@ make tw-watch
 
 ```bash
 make run
+```
+
+### Docker Installation
+
+- Clone the repository:
+
+```bash
+git clone https://github.com/putuwaw/shorten-url.git
+```
+
+- Run docker-compose:
+
+```bash
+docker-compose up
 ```
 
 ## Contributing 🤝
